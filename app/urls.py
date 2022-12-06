@@ -8,6 +8,8 @@ urlpatterns = [
     # creating dynamic url #int : path converter
     path('job/<int:id>/', jdp, name='jobs_des'),
     # path converters could be more appropriately called as url path convereters
+    path('job/<int:id>/', jdp, name='job_list'),
+
     path('hello/', hello, name='hello')
 ]
 # use name spacing i-e under the templates folder have another folder with the app name
