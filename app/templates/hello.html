@@ -1,0 +1,19 @@
+<h1>
+  Hello {% if authenticated %}
+   {{name}} you are {{t.age}} years old today! 
+   {%else %} User
+</h1>
+
+{% endif %}
+
+{% comment "first" %} Use the latest version of Django documentation{% endcomment %}
+
+<h2>{% for el in first_list %} 
+       <p> First List: {{el}}</p>
+    {% endfor %}</h2>
+
+<h3>{{t.x}}</h3>
+</h2>
+Filter:
+{{first_list|length_is:"2"}}
+</h2>

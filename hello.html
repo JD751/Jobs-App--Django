@@ -1,0 +1,13 @@
+<h1>
+  Hello {% if authenticated %}
+   {{name}} you are {{t.age}} years old today! 
+   {%else %} User
+</h1>
+
+{% endif %}
+
+<h2>{% for el in first_list %} 
+       <p> First List: {{el}}</p>
+    {% endfor %}</h2>
+
+<h3>{{t.x}}</h3>
