@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 from django.template import loader
+from app.models import JobPost
 
 job_title = [
 
@@ -27,8 +28,9 @@ def hello(request):
 def jdp(request, id):
     # assert 0, dir(request)
 
-    context = {"job_title": job_title[id],
-               "job_description": job_description[id]
+    jobs= JobPost.objects.all()
+    context = {"job": jobs
+               
                }
     
     return render (request, "app/job_list.html", context)
@@ -52,9 +54,8 @@ class TempClass:
 
 
 def job_list(request):
-   
-    context = {"job_title": job_title,
-               "job_description": job_description,
+    jobs= JobPost.objects.all()
+    context = {"job": jobs
                
                }
 
