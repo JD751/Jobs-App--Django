@@ -28,20 +28,19 @@ def hello(request):
 def jdp(request, id):
     # assert 0, dir(request)
 
-    jobs= JobPost.objects.all()
-    context = {"job": jobs
-               
+    job = JobPost.objects.get(id=id)
+
+    context = {"job": job
+
+
                }
-    
-    return render (request, "app/job_list.html", context)
 
-
+    return render(request, "app/job_list.html", context)
 
     # try:
     #     if id == 0:
     #         return redirect(reverse('jobs_home'))
 
-    
     #     # return_html = f"<h1> {job_title[id]}</h1> <h3> {job_description[id]}</h3>"
     #     # return HttpResponse(return_html)
     # except:
@@ -54,9 +53,9 @@ class TempClass:
 
 
 def job_list(request):
-    jobs= JobPost.objects.all()
+    jobs = JobPost.objects.all()
     context = {"job": jobs
-               
+
                }
 
     # list_of_jobs = "<ul>"
@@ -66,7 +65,6 @@ def job_list(request):
     # list_of_jobs +="</ul>"
     # return HttpResponse(list_of_jobs)
     return render(request, 'app/job_des.html', context)
-
 
 
 def hello(request):

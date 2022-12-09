@@ -1,10 +1,10 @@
 
 
     <ul>
-        {%for jobs in jobs%}
+        {%for el in job%}
             <li> 
                 <h1>
-                 <a href= "{% url 'jobs_des' forloop.counter0 %}">{{jobs}}</a> 
+                 <a href= "{% url 'jobs_des' el.id %}">{{el}}</a> 
                 </h1>
                 </li>
         {% endfor %}
