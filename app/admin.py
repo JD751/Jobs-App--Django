@@ -1,18 +1,35 @@
 from django.contrib import admin
-from app.models import JobPost
+from app.models import JobPost, Location
 
-    
+
+class LocAdmin(admin.ModelAdmin):
+    list_display = ("__str__", "street", "city", "state", "country", "zip")
 
 
 class JobAdmin(admin.ModelAdmin):
-    list_display= ("__str__","title", "date", "salary")# list display overwrites the __str__ function
+    # list display overwrites the __str__ function
+    list_display = ("__str__", "title", "date", "salary")
     # it's displayed in django admin panel at the same order
-    list_filter= ('date','salary')
-    search_fields=('title', 'salary')
-    search_help_text= "Please type your query here"
-    
+    list_filter = ('date', 'salary')
+    search_fields = ('title', 'salary')
+    search_help_text = "Please type your query here"
+    # fields=(('title','description'),'salary')
+    #exclude= ('title',)
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('title', 'description')
 
+        }),
+
+        ('More Information', {
+            'classes': ('collapse', 'wide'),
+            'fields': ('salary', 'slug')
+
+        })
+
+    )
 
 
 # Register your models here.
 admin.site.register(JobPost, JobAdmin)
+admin.site.register(Location, LocAdmin)
