@@ -1,8 +1,4 @@
 <style>
-  body {
-    background-image: url("file:///Users/Chaudhary/Downloads/people-4681375_1920.jpg");
-    background-size: cover;
-  }
 
   form {
     width: 300px;
@@ -47,12 +43,18 @@
 
 
 
-<form>
+<form method="post">
+  {% csrf_token %}
+  {{form}}
+
+  <!-- 
+    <p> {{email_error_empty}} </p>
   <label for="firstname">First Name:</label><br />
-  <input type="text" id="firstname" name="firstname" /><br />
+  <input type="text" id="firstname" name="firstname"required /><br />
   <label for="lastname">Last Name:</label><br />
-  <input type="text" id="lastname" name="lastname" /><br />
+  <input type="text" id="lastname" name="lastname" required/><br />
   <label for="email">Email:</label><br />
-  <input type="email" id="email" name="email" /><br /><br />
+  <input type="email" id="email" name="email" required /><br /><br />
   <input type="submit" value="Submit" />
 </form>
+-->
