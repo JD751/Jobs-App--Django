@@ -1,6 +1,4 @@
-
 <style>
-
   form {
     width: 300px;
     margin: 0 auto;
@@ -42,10 +40,12 @@
   }
 </style>
 
-
-
 <form method="post">
   {% csrf_token %}
+  <!--{{form.as_p}}  Th label and input types are wrapped in p tags, i-e paragraph
+  {{form.as_table}} table tags such as tr
+  {{form.as_ul}} unordered list
+  -->
   {{form}}
   <input type="submit" value="Submit" />
 
@@ -59,4 +59,4 @@
   <input type="email" id="email" name="email" required /><br /><br />
   <input type="submit" value="Submit" />
 </form>
--->
+--></form>
