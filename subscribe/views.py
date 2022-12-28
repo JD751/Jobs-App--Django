@@ -13,19 +13,21 @@ def subscribe(request):
         # we get this from the name attribute in the html file
         subscribe_form = SubscribeForm(request.POST)
     if subscribe_form.is_valid():
-        print('Form is valid')
-        print(subscribe_form.cleaned_data)
-        email = subscribe_form.cleaned_data["email"]
-        # this data is coming from the cleaned data dictionary
-        first_name = subscribe_form.cleaned_data["first_name"]
-        # in the brackets is the same name as defined in forms.py
-        last_name = subscribe_form.cleaned_data["last_name"]
-        print(email)
+        subscribe_form.save()
+        # no need for all the bottom when you're using model forms
+        # print('Form is valid')
+        # print(subscribe_form.cleaned_data)
+        # email = subscribe_form.cleaned_data["email"]
+        # # this data is coming from the cleaned data dictionary
+        # first_name = subscribe_form.cleaned_data["first_name"]
+        # # in the brackets is the same name as defined in forms.py
+        # last_name = subscribe_form.cleaned_data["last_name"]
+        # print(email)
 
-        subscribe = Subscribe(first_name=first_name,email=email, last_name=last_name)
-        subscribe.save()
+        # subscribe = Subscribe(first_name=first_name,email=email, last_name=last_name)
+        # subscribe.save()
         return redirect(reverse("thank_you"))
-        
+
     context = {"form": subscribe_form}
 
     all_formas = Subscribe.objects.all()

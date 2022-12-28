@@ -42,11 +42,22 @@
 
 <form method="post">
   {% csrf_token %}
+  {{form.as_p}}
   <!--{{form.as_p}}  Th label and input types are wrapped in p tags, i-e paragraph
   {{form.as_table}} table tags such as tr
   {{form.as_ul}} unordered list
   -->
-  {{form}}
+
+{% comment "" %}{% for field in form %}
+  
+  <div class= "subscribe_field"> 
+    {{field.errors}}
+    {{field.label_tag}}
+    {{field}}
+
+  </div>}}
+  {% endfor %}
+  {% endcomment %}
   <input type="submit" value="Submit" />
 
   <!-- 
