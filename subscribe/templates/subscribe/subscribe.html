@@ -1,63 +1,24 @@
-<style>
-  form {
-    width: 300px;
-    margin: 0 auto;
-    text-align: left;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-  }
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'subscribe/main.css' %}" />
 
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
+  <script src="{% static 'subscribe/main.js' %}"></script>
+ <img src="{% static 'subscribe/email_icon.png' %}" alt="subscribe">
 
-  input[type="text"],
-  input[type="email"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  input[type="submit"] {
-    width: 100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  input[type="submit"]:hover {
-    background-color: #45a049;
-  }
-</style>
 
 <form method="post">
-  {% csrf_token %}
-  {{form.as_p}}
+  {% csrf_token %} {{form.as_p}}
+
   <!--{{form.as_p}}  Th label and input types are wrapped in p tags, i-e paragraph
   {{form.as_table}} table tags such as tr
   {{form.as_ul}} unordered list
   -->
 
-{% comment "" %}{% for field in form %}
-  
-  <div class= "subscribe_field"> 
-    {{field.errors}}
-    {{field.label_tag}}
-    {{field}}
+  {% comment "" %}{% for field in form %}
 
-  </div>}}
-  {% endfor %}
-  {% endcomment %}
+  <div class="subscribe_field">
+    {{field.errors}} {{field.label_tag}} {{field}}
+  </div>
+  }} {% endfor %} {% endcomment %}
   <input type="submit" value="Submit" />
 
   <!-- 
@@ -71,3 +32,7 @@
   <input type="submit" value="Submit" />
 </form>
 --></form>
+
+
+<button onclick="popup()">Click Me</button>
+

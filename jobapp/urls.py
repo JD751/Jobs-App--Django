@@ -24,6 +24,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls), #admin user is also called the super user
     path('', include('app.urls') ),
-    path('', include('subscribe.urls') )
+    path('', include('subscribe.urls') ),
+    path('uploads/', include('upload.urls') )
 
 ]
