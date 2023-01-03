@@ -26,12 +26,18 @@ class Author(models.Model):
 
 
 class JobPost (models.Model):
+    JOB_TYPE_CHOICES= [
+    ('Full Time', 'Full Time'),
+    ('Part Time', 'Part Time')
+
+    ]
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     salary = models.IntegerField()
     # slugfield has a max length of 50 characters
     slug = models.SlugField(null=True, max_length=40, unique=True)
+    type = models.CharField(max_length=200, default= 'Full Time' , choices=JOB_TYPE_CHOICES)
  # indexing helps differentiating objects so no two objects have the same index
     Location = models.OneToOneField(
         Location, on_delete=models.CASCADE, null=True)

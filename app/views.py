@@ -54,7 +54,7 @@ class TempClass:
 
 def job_list(request):
     jobs = JobPost.objects.all()
-    context = {"job": jobs
+    context = {"jobs": jobs
 
                }
 
