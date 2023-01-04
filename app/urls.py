@@ -6,9 +6,9 @@ from app.views import jdp, job_list, hello
 urlpatterns = [
     path('', job_list, name='jobs_home'),
     # creating dynamic url #int : path converter
-    path('job/<int:id>/', jdp, name='jobs_des'),
+    path('job/<slug:slug>/', jdp, name='jobs_des'),
     # path converters could be more appropriately called as url path convereters
-    path('job/<int:id>/', jdp, name='job_list'),
+    path('job/<slug:slug>/', jdp, name='job_list'),
 
     path('hello/', hello, name='hello')
 ]

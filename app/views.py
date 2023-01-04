@@ -25,10 +25,11 @@ def hello(request):
     return HttpResponse('Hello World! Live_url!')
 
 
-def jdp(request, id):
+def jdp(request, slug):
     # assert 0, dir(request)
 
-    job = JobPost.objects.get(id=id)
+    job = JobPost.objects.get(slug=slug)
+    
 
     context = {"job": job
 

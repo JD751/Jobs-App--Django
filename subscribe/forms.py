@@ -15,6 +15,7 @@ class SubscribeForm(forms.ModelForm):
             'first_name': {
                 'required': "You cannot move forward without specifying the first name"
             },
+           
         }
         # help_texts = {
         #     'first_name': "Please only enter characters here"
