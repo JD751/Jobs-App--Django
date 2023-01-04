@@ -16,10 +16,10 @@ class SubscribeForm(forms.ModelForm):
                 'required': "You cannot move forward without specifying the first name"
             },
         }
-        help_texts = {
-            'first_name': "Please only enter characters here"
+        # help_texts = {
+        #     'first_name': "Please only enter characters here"
 
-        }
+        # }
 
 
 # def validate_comma(value):

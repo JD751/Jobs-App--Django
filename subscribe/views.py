@@ -33,7 +33,7 @@ def subscribe(request):
     all_formas = Subscribe.objects.all()
     print(all_formas)
 
-    return render(request, "subscribe/subscribe.html", context)
+    return render(request, "subscribe/email.html", context)
 
 
 def thankyou(request):
