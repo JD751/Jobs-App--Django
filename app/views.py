@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
+# TODO: Remove unused imports or use isort to clean it automatically
 from django.urls import reverse
 from django.template import loader
 from app.models import JobPost

@@ -5,14 +5,21 @@ from django.utils.text import slugify
 
 
 class Skills(models.Model):
+    # TODO: Is that possible to have a first_name of 200 chars?
+    #   Can a name be null? What would be the goal of an entry without name?
     name = models.CharField(max_length=200, null=True)
 
 
 class Location(models.Model):
+    # TODO: Is that possible to have a first_name of 200 chars?
     street = models.CharField(max_length=200)
+    # TODO: Is that possible to have a first_name of 200 chars?
     city = models.CharField(max_length=200)
+    # TODO: Is that possible to have a first_name of 200 chars?
     state = models.CharField(max_length=200)
+    # TODO: Is that possible to have a first_name of 200 chars?
     country = models.CharField(max_length=200)
+    # TODO: Is zip an integer or CharField?
     zip = models.IntegerField()
 
     def __str__(self):
@@ -20,6 +27,7 @@ class Location(models.Model):
 
 
 class Author(models.Model):
+    # TODO: Is that possible to have a first_name of 200 chars?
     name = models.CharField(max_length=200)
     company = models.CharField(max_length=200)
     designation = models.CharField(max_length=200)
