@@ -1,6 +1,6 @@
 from django.urls import path
 
-from app.views import jdp, job_list, hello
+from app.views import jdp, job_list
 
 
 urlpatterns = [
@@ -10,7 +10,7 @@ urlpatterns = [
     # path converters could be more appropriately called as url path convereters
     path('job/<slug:slug>/', jdp, name='job_list'),
 
-    path('hello/', hello, name='hello')
+    
 ]
 # use name spacing i-e under the templates folder have another folder with the app name
 

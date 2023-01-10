@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
     'subscribe.apps.SubscribeConfig',
-    'upload.apps.UploadConfig'
+    'upload.apps.UploadConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -120,8 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_ROOT = BASE_DIR / 'uploads/' # defins the root folder where your user uploaded media is stored
-MEDIA_URL = 'media/' # defines how the uploaded media is served essentially. Defines the url on which the media can be accessed
+# defins the root folder where your user uploaded media is stored
+MEDIA_ROOT = BASE_DIR / 'uploads/'
+# defines how the uploaded media is served essentially. Defines the url on which the media can be accessed
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -129,3 +135,22 @@ MEDIA_URL = 'media/' # defines how the uploaded media is served essentially. Def
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 APPEND_SLASH = True
+
+##############  Amazon S3 Configuration ######################
+
+# settings.py
+
+# AWS settings
+#settings.py
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'jdwebapp-jobapp-static'
+
+# S3 settings
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = 'public'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# Tell Django to use S3 as the default file storage backend
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
