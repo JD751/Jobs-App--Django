@@ -22,7 +22,7 @@ class SubscribeForm(forms.ModelForm):
 
         # }
 
-
+# TODO: Any unused code should be deleted
 # def validate_comma(value):
 #     if "," in value:
 #         raise forms.ValidationError('Please insert a valid value')
