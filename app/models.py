@@ -2,13 +2,13 @@ from django.db import models
 from django.utils.text import slugify
 
 class Skills(models.Model):
-    name = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=50, null=True)
 
 class Location(models.Model):
-    street = models.CharField(max_length=200)
-    city = models.CharField(max_length=200)
-    state = models.CharField(max_length=200)
-    country = models.CharField(max_length=200)
+    street = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
     zip = models.IntegerField()
 
     def __str__(self):

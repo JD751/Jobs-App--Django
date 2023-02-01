@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/django
+    ports:
+      - 8000:8000
+    image: jdapp_ecr
+    container_name: docker_container
+    command: gunicorn jobapp.wsgi:application --bind 0.0.0.0:8000
