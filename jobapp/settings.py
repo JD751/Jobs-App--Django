@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['www.jawadcreations.com', 'jawadcreations.com']
+ALLOWED_HOSTS = ['www.jawadcreations.com', 'jawadcreations.com','*']
 CSRF_TRUSTED_ORIGINS= ['https://www.jawadcreations.com', 'https://jawadcreations.com' ]
 
 
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
     'subscribe.apps.SubscribeConfig',
-    'upload.apps.UploadConfig',
     'storages',
 
 ]

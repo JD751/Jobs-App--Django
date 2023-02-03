@@ -1,13 +1,8 @@
-
 from django.urls import path
-from subscribe.views import subscribe, thankyou
+from .views import SubscribeView, ThankYouView
 
-
-
-
-
-# a view is a function that takes a request and returns a response
 urlpatterns = [
-    path('subscribe/', subscribe, name="subscribe"), 
-    path('thank-you/', thankyou, name="thank_you")
+    path('subscribe/', SubscribeView.as_view(), name='subscribe'),
+    path('thank_you/', ThankYouView.as_view(), name='thank_you'),
+
 ]

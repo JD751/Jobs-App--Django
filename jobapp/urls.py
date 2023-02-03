@@ -18,16 +18,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-
-
-
 # a view is a function that takes a request and returns a response
 urlpatterns = [
     path('admin/', admin.site.urls), #admin user is also called the super user
     path('', include('app.urls') ),
-    path('', include('subscribe.urls') ),
-    path('uploads/', include('upload.urls') ),
-    
+    path('', include('subscribe.urls') ),  
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

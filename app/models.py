@@ -2,23 +2,23 @@ from django.db import models
 from django.utils.text import slugify
 
 class Skills(models.Model):
-    name = models.CharField(max_length=50, null=True)
+    name = models.CharField(max_length=50)
 
 class Location(models.Model):
     street = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    zip = models.IntegerField()
+    zip = models.CharField(max_length=50)
 
     def __str__(self):
         return self.city
 
 
 class Author(models.Model):
-    name = models.CharField(max_length=200)
-    company = models.CharField(max_length=200)
-    designation = models.CharField(max_length=200)
+    name = models.CharField(max_length=50)
+    company = models.CharField(max_length=50)
+    designation = models.CharField(max_length=100)
 
 
 class JobPost (models.Model):
