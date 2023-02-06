@@ -1,5 +1,4 @@
 from app.views import JobListView, JobPostDetailView
-
 from django.urls import path
 
 urlpatterns = [
