@@ -1,7 +1,8 @@
-from django.views.generic import ListView , DetailView
+from django.views.generic import ListView, DetailView
 from app.models import JobPost
 
-#Class based views
+
+# Class based views
 
 class JobPostDetailView(DetailView):
     model = JobPost
@@ -17,7 +18,3 @@ class JobListView(ListView):
     model = JobPost
     template_name = 'app/job_des.html'
     context_object_name = 'jobs'
-   
-
-
-
