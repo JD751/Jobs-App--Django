@@ -10,6 +10,6 @@ class GeneralFunctionalTests(LiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_can_navigate_the_site(self):
+    def test_able_to_navigate_the_site(self):
         self.browser.get('http://localhost:8000')
         assert 'Django' in self.browser.title
