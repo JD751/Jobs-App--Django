@@ -7,7 +7,7 @@ class GeneralFunctionalTests(LiveServerTestCase):
         self.browser = webdriver.Chrome()
         self.browser.implicitly_wait(3)
 
-    def tearDown(self):
+    def tear_down(self):
         self.browser.quit()
 
     def test_able_to_navigate_the_site(self):
